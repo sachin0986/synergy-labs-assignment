@@ -4,6 +4,7 @@ import AddUser from "./Components/AddUser";
 import User from "./Components/User";
 import Footer from "./Components/Footer";
 import UpdateUser from "./Components/UpdateUser";
+import { API_URL } from "./Utils/Constants";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -15,7 +16,7 @@ const App = () => {
   }, []);
 
   const fetchData = async () => {
-    await fetch("https://jsonplaceholder.typicode.com/users")
+    await fetch(API_URL)
       .then((res) => res.json())
       .then((data) => setUsers(data))
       .catch((err) => {
